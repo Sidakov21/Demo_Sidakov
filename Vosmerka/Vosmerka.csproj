@@ -86,6 +86,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Documents\23_ДиаграммаПрецедентов_Сидаков.drawio" />
+    <None Include="Documents\23_ДиаграммаПрецедентов_Сидаков.drawio.pdf" />
     <None Include="Documents\23_РКБД_Сидаков.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
