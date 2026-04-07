@@ -44,7 +44,7 @@ namespace Vosmerka.Pages
                 || string.IsNullOrWhiteSpace(ArticleTextBox.Text)
                 || string.IsNullOrWhiteSpace(MinCostTextBox.Text)
                 || string.IsNullOrWhiteSpace(HumanTextBox.Text)
-                || string.IsNullOrWhiteSpace(ProductPlaceTextBox.Text)
+                || string.IsNullOrWhiteSpace(ProductPlaseTextBox.Text)
                 || ProductTypeComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Укажите все данные!");
@@ -61,7 +61,7 @@ namespace Vosmerka.Pages
                     Image = ImageTextBox.Text,
                     ProductType = ProductTypeComboBox.SelectedItem as ProductType,
                     HumanResourses = Convert.ToInt32(HumanTextBox.Text),
-                    ProductPlaseId = Convert.ToInt32(ProductPlaceTextBox.Text)
+                    ProductPlaseId = Convert.ToInt32(ProductPlaseTextBox.Text)
                 };
                 Core.Context.Product.Add(CurrentProduct);
                 Core.Context.SaveChanges();
@@ -74,7 +74,7 @@ namespace Vosmerka.Pages
                 CurrentProduct.Image = ImageTextBox.Text;
                 CurrentProduct.ProductType = ProductTypeComboBox.SelectedItem as ProductType;
                 CurrentProduct.HumanResourses = Convert.ToInt32(HumanTextBox.Text);
-                CurrentProduct.ProductPlaseId = Convert.ToInt32(ProductPlaceTextBox.Text);
+                CurrentProduct.ProductPlaseId = Convert.ToInt32(ProductPlaseTextBox.Text);
 
                 Core.Context.SaveChanges();
             }

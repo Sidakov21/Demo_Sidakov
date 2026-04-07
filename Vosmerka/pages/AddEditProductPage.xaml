@@ -27,8 +27,8 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Тип продукта:"/>
-            <ComboBox x:Name="ProductTypeComboBox" SelectedItem="{Binding ProductTypeName}"
-                      DisplayMemberPath="Name" Width="200"/>
+            <ComboBox x:Name="ProductTypeComboBox" SelectedItem="{Binding ProductType}"
+                      DisplayMemberPath="ProductTypeName" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Сколько сотрудников необходимо:"/>
@@ -36,7 +36,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Номер цеха:"/>
-            <TextBox x:Name="ProductPlaceTextBox" Width="200" Text="{Binding ProductPlaceId}"/>
+            <TextBox x:Name="ProductPlaseTextBox" Width="200" Text="{Binding ProductPlaseId}"/>
         </StackPanel>
 
         <Button x:Name="SaveButton" Content="Сохранить" Click="SaveButton_Click"/>
