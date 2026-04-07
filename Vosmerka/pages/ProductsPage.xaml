@@ -47,7 +47,7 @@
 
                         <Image Grid.Column="0">
                             <Image.Source>
-                                <Binding Path="ImagePath">
+                                <Binding Path="Image">
                                     <Binding.TargetNullValue>
                                         <ImageSource>/Images/picture.png</ImageSource>
                                     </Binding.TargetNullValue>
@@ -58,9 +58,9 @@
                         <StackPanel Grid.Column="1" Margin="10">
                             <TextBlock>
                                 <TextBlock.Text>
-                                    <MultiBinding StringFormat="{} {0} | {1}}">
+                                    <MultiBinding StringFormat="{} {0} | {1}">
                                         <Binding Path="ProductType.ProductTypeName"/>
-                                        <Binding Path="ProductTypeName"/>
+                                        <Binding Path="ProductName"/>
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>

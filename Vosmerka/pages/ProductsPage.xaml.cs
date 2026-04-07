@@ -49,7 +49,7 @@ namespace Vosmerka.Pages
 
         public void Filter()
         {
-            var filteredProducts = Core.Context.Product.ToList(); //Тут Product
+            var filteredProducts = Core.Context.Product.ToList();
 
             if (!string.IsNullOrWhiteSpace(SearchTextBox.Text))
             {
@@ -72,6 +72,11 @@ namespace Vosmerka.Pages
                 filteredProducts = filteredProducts
                     .Where(p => p.ProductType == ProductTypeComboBox.SelectedItem as ProductType)
                     .ToList();
+            }
+
+            if (ProductsListBox != null)
+            {
+                ProductsListBox.ItemsSource = filteredProducts;
             }
         }
 
