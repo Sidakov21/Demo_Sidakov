@@ -9,6 +9,19 @@
         <EntityTypeShape EntityType="user23Model.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="user23Model.FK_User_Role" />
         <EntityTypeShape EntityType="user23Model.sysdiagrams" Width="1.5" PointX="2.625" PointY="4.5" />
+        <EntityTypeShape EntityType="user23Model.Make" Width="1.5" PointX="9.875" PointY="1.5" />
+        <EntityTypeShape EntityType="user23Model.Material" Width="1.5" PointX="7.625" PointY="8.875" />
+        <EntityTypeShape EntityType="user23Model.MaterialType" Width="1.5" PointX="5.375" PointY="8.375" />
+        <EntityTypeShape EntityType="user23Model.Product" Width="1.5" PointX="7.625" PointY="1" />
+        <EntityTypeShape EntityType="user23Model.ProductPlace" Width="1.5" PointX="5.375" PointY="1.75" />
+        <EntityTypeShape EntityType="user23Model.ProductType" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="user23Model.QuantityType" Width="1.5" PointX="5.375" PointY="10.75" />
+        <AssociationConnector Association="user23Model.FK_Make_Material" />
+        <AssociationConnector Association="user23Model.FK_Make_Product" />
+        <AssociationConnector Association="user23Model.FK_Material_MaterialType" />
+        <AssociationConnector Association="user23Model.FK_Material_QuantityType" />
+        <AssociationConnector Association="user23Model.FK_Product_ProductPlace" />
+        <AssociationConnector Association="user23Model.FK_Product_ProductType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
