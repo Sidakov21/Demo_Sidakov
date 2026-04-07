@@ -12,14 +12,16 @@ namespace Vosmerka
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class MaterialType
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
+        public MaterialType()
+        {
+            this.Material = new HashSet<Material>();
+        }
     
-        public virtual Role Role { get; set; }
+        public int MaterialTypeID { get; set; }
+        public string MaterialTypeName { get; set; }
+    
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

@@ -12,14 +12,14 @@ namespace Vosmerka
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Make
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
+        public int ProductID { get; set; }
+        public int MaterialID { get; set; }
+        public int QuantityMaterial { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual Material Material { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

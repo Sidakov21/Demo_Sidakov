@@ -12,14 +12,24 @@ namespace Vosmerka
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Product
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
+        public Product()
+        {
+            this.Make = new HashSet<Make>();
+        }
     
-        public virtual Role Role { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public string Article { get; set; }
+        public Nullable<int> MinCost { get; set; }
+        public string Image { get; set; }
+        public int ProductTypeID { get; set; }
+        public Nullable<int> HumanResourses { get; set; }
+        public int ProductPlaseId { get; set; }
+    
+        public virtual ICollection<Make> Make { get; set; }
+        public virtual ProductPlace ProductPlace { get; set; }
+        public virtual ProductType ProductType { get; set; }
     }
 }

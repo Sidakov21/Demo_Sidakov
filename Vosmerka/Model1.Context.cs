@@ -13,10 +13,10 @@ namespace Vosmerka
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class user23Entities : DbContext
+    public partial class user23Entitiess : DbContext
     {
-        public user23Entities()
-            : base("name=user23Entities")
+        public user23Entitiess()
+            : base("name=user23Entitiess")
         {
         }
     
@@ -25,7 +25,15 @@ namespace Vosmerka
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Make> Make { get; set; }
+        public DbSet<Material> Material { get; set; }
+        public DbSet<MaterialType> MaterialType { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductPlace> ProductPlace { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<QuantityType> QuantityType { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<User> User { get; set; }
     }
 }

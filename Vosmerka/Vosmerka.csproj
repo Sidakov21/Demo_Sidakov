@@ -62,17 +62,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core.cs" />
+    <Compile Include="Make.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditProductPage.xaml.cs">
+      <DependentUpon>AddEditProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductsPage.xaml.cs">
+      <DependentUpon>ProductsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPlace.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuantityType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,18 +133,20 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -117,12 +167,12 @@
     <None Include="Documents\23_ДиаграммаПрецедентов_Сидаков.drawio" />
     <None Include="Documents\23_ДиаграммаПрецедентов_Сидаков.drawio.pdf" />
     <None Include="Documents\23_РКБД_Сидаков.pdf" />
+    <None Include="Documents\23_ТестовыеСценарии_Сидаков.docx" />
+    <None Include="Documents\23_ТестовыеСценарии_Сидаков.pdf" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Documents\23_ТестовыеСценарии_Сидаков.docx" />
-    <None Include="Documents\23_ТестовыеСценарии_Сидаков.pdf" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -136,15 +186,82 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\" />
     <Folder Include="Resourses\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documents\VosmerkaScript.sql" />
+    <Resource Include="Products\tire_0.jpg" />
+    <Resource Include="Products\tire_1.jpg" />
+    <Resource Include="Products\tire_10.jpg" />
+    <Resource Include="Products\tire_11.jpg" />
+    <Resource Include="Products\tire_12.jpg" />
+    <Resource Include="Products\tire_13.jpg" />
+    <Resource Include="Products\tire_14.jpg" />
+    <Resource Include="Products\tire_15.jpg" />
+    <Resource Include="Products\tire_16.jpg" />
+    <Resource Include="Products\tire_17.jpg" />
+    <Resource Include="Products\tire_18.jpg" />
+    <Resource Include="Products\tire_19.jpg" />
+    <Resource Include="Products\tire_2.jpg" />
+    <Resource Include="Products\tire_20.jpg" />
+    <Resource Include="Products\tire_21.jpg" />
+    <Resource Include="Products\tire_22.jpg" />
+    <Resource Include="Products\tire_23.jpg" />
+    <Resource Include="Products\tire_24.jpg" />
+    <Resource Include="Products\tire_25.jpg" />
+    <Resource Include="Products\tire_26.jpg" />
+    <Resource Include="Products\tire_27.jpg" />
+    <Resource Include="Products\tire_28.jpg" />
+    <Resource Include="Products\tire_29.jpg" />
+    <Resource Include="Products\tire_3.jpg" />
+    <Resource Include="Products\tire_30.jpg" />
+    <Resource Include="Products\tire_31.jpg" />
+    <Resource Include="Products\tire_32.jpg" />
+    <Resource Include="Products\tire_33.jpg" />
+    <Resource Include="Products\tire_34.jpg" />
+    <Resource Include="Products\tire_35.jpg" />
+    <Resource Include="Products\tire_36.jpg" />
+    <Resource Include="Products\tire_37.jpg" />
+    <Resource Include="Products\tire_38.jpg" />
+    <Resource Include="Products\tire_39.jpg" />
+    <Resource Include="Products\tire_4.jpg" />
+    <Resource Include="Products\tire_40.jpg" />
+    <Resource Include="Products\tire_41.jpg" />
+    <Resource Include="Products\tire_42.jpg" />
+    <Resource Include="Products\tire_43.jpg" />
+    <Resource Include="Products\tire_44.jpg" />
+    <Resource Include="Products\tire_45.jpg" />
+    <Resource Include="Products\tire_46.jpg" />
+    <Resource Include="Products\tire_47.jpg" />
+    <Resource Include="Products\tire_48.jpg" />
+    <Resource Include="Products\tire_49.jpg" />
+    <Resource Include="Products\tire_5.jpg" />
+    <Resource Include="Products\tire_50.jpg" />
+    <Resource Include="Products\tire_51.jpg" />
+    <Resource Include="Products\tire_52.jpg" />
+    <Resource Include="Products\tire_53.jpg" />
+    <Resource Include="Products\tire_54.jpg" />
+    <Resource Include="Products\tire_55.jpg" />
+    <Resource Include="Products\tire_56.jpg" />
+    <Resource Include="Products\tire_57.jpg" />
+    <Resource Include="Products\tire_58.jpg" />
+    <Resource Include="Products\tire_59.jpg" />
+    <Resource Include="Products\tire_6.jpg" />
+    <Resource Include="Products\tire_60.jpg" />
+    <Resource Include="Products\tire_61.jpg" />
+    <Resource Include="Products\tire_62.jpg" />
+    <Resource Include="Products\tire_63.jpg" />
+    <Resource Include="Products\tire_64.jpg" />
+    <Resource Include="Products\tire_7.jpg" />
+    <Resource Include="Products\tire_8.jpg" />
+    <Resource Include="Products\tire_9.jpg" />
+    <Resource Include="Images\picture.png" />
+    <Resource Include="Images\Восьмерка.ico" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vosmerka"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Восьмерка" Height="450" Width="800">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Images/Восьмерка.ico" 
+               Grid.Row="0" HorizontalAlignment="Left"/>
+            <Button Content="Назад" 
+                Grid.Row="0" HorizontalAlignment="Right" 
+                Click="BackButton_Click"/>
+            <Frame x:Name="MainFrame" 
+               Grid.Row="1" Source="Pages/AuthPage.xaml" 
+               NavigationUIVisibility="Hidden"/>
+        </Grid>
     </Grid>
 </Window>
