@@ -27,5 +27,6 @@ namespace Vosmerka
     
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
