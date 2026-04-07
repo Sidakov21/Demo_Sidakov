@@ -11,7 +11,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Название:"/>
-            <TextBox x:Name="NameTextBox" Width="200" Text="{Binding Name}"/>
+            <TextBox x:Name="NameTextBox" Width="200" Text="{Binding ProductName}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Артикул:"/>
@@ -23,15 +23,16 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Путь к картинке:"/>
-            <TextBox x:Name="ImagePathTextBox" Width="200" Text="{Binding ImagePath}"/>
+            <TextBox x:Name="ImageTextBox" Width="200" Text="{Binding Image}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Тип продукта:"/>
-            <TextBox x:Name="ProductTypeTextBox" Width="200" Text="{Binding ProductType}"/>
+            <ComboBox x:Name="ProductTypeComboBox" SelectedItem="{Binding ProductTypeName}"
+                      DisplayMemberPath="Name" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Сколько сотрудников необходимо:"/>
-            <TextBox x:Name="WorkersTextBox" Width="200" Text="{Binding WorkersRequired}"/>
+            <TextBox x:Name="HumanTextBox" Width="200" Text="{Binding HumanResourses}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Номер цеха:"/>

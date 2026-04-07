@@ -39,7 +39,7 @@ namespace Vosmerka.Pages
                 return;
             }
 
-            var user = Core.Context.User.FirstOrDefult(u => 
+            var user = Core.Context.User.FirstOrDefault(u => 
                 u.Login == LoginTextBox.Text && u.Password == PassBox.Password);
 
             if (user == null)

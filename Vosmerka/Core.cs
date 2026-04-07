@@ -8,15 +8,15 @@ namespace Vosmerka
 {
     internal static class Core
     {
-        public static user23Entities Context = new user23Entities();
+        public static user23Entitiess  Context = new user23Entitiess();
 
         public static User AuthUser = null;
     }
 
     public partial class Product
     {
-        //public bool IsGreatThen10k => MinCost > 10000;
+        public bool IsGreatThen10k => MinCost > 10000;
 
-        //public string Materials => string.Join(", ", ProuctMaterial.Select(pm => pm.Material.Name));
+        public string Materials => string.Join(", ", Make.Select(pm => pm.Material.MaterialName));
     }
 }

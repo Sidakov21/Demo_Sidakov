@@ -29,13 +29,13 @@
             </ComboBox>
 
             <ComboBox x:Name="ProductTypeComboBox" Width="100"
-                      DisplayMemberPath="Name"
+                      DisplayMemberPath="ProductTypeName"
                       SelectionChanged="ProductTypeComboBox_SelectionChanged">
             </ComboBox>
         </StackPanel>
 
         <ListBox Grid.Row="1" x:Name="ProductsListBox"
-                 HorizontalAlignment="Stretch">\
+                 HorizontalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -45,26 +45,27 @@
                             <ColumnDefinition Width="80"/>
                         </Grid.ColumnDefinitions>
 
-                        <!--<Image Grid.Column="0">
+                        <Image Grid.Column="0">
                             <Image.Source>
                                 <Binding Path="ImagePath">
                                     <Binding.TargetNullValue>
-                                        <ImageSource>../Images/picture.png"</ImageSource> //Вот здесь может быть косяк
+                                        <ImageSource>/Images/picture.png</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
-                        </Image>-->
+                        </Image>
+                        
                         <StackPanel Grid.Column="1" Margin="10">
                             <TextBlock>
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat="{} {0} | {1}}">
-                                        <Binding Path="ProductType.Name"/>
-                                        <Binding Path="Name"/>
+                                        <Binding Path="ProductType.ProductTypeName"/>
+                                        <Binding Path="ProductTypeName"/>
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
                             <TextBlock Text="{Binding Article}"/>
-                            <TextBlock Text="{Binding Materials, StringFormat=Материалы: {0}}"/>
+                            <TextBlock Text="{Binding Material, StringFormat=Материалы: {0}}"/>
                         </StackPanel>
                         <TextBlock Grid.Column="2" Text="{Binding MinCost}"/>
                     </Grid>
@@ -94,9 +95,5 @@
                     Content="Материалы" Click="MaterialsButton_Click"/>
 
         </StackPanel>
-
-
-
-
     </Grid>
 </Page>

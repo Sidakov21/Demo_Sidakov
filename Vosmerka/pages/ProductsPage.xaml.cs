@@ -23,11 +23,10 @@ namespace Vosmerka.Pages
         public ProductsPage()
         {
             InitializeComponent();
-            //ProductsListBox.ItemsSource = Core.Context.Product.ToList(); //Здесь у нас должны быть прописаны продукты в БД
-            ProductsListBox.ItemsSource = Core.Context.Role.ToList(); //Используем на время
+            ProductsListBox.ItemsSource = Core.Context.Product.ToList();
 
-            var productTypes = Core.Context.Role.ToList(); // Вместо Role ProductType
-            productTypes.Insert(0, new Role { RoleName = "Все типы продукции" }); //Здесь тоже самое ProductType
+            var productTypes = Core.Context.ProductType.ToList();
+            productTypes.Insert(0, new ProductType { ProductTypeName = "Все типы продукции" });
             ProductTypeComboBox.ItemsSource = productTypes;
 
             if (Core.AuthUser == null)
@@ -42,7 +41,7 @@ namespace Vosmerka.Pages
                 case 1:
                     MaterialsPanel.Visibility = Visibility.Collapsed;
                     break;
-                case 3:
+                case 2:
                     EditButtonsPanel.Visibility = Visibility.Collapsed;
                     break;
             }
@@ -55,7 +54,7 @@ namespace Vosmerka.Pages
             if (!string.IsNullOrWhiteSpace(SearchTextBox.Text))
             {
                 filteredProducts = filteredProducts
-                    .Where(p => p.Name.ToLower().Contains(SearchTextBox.Text.ToLower()))
+                    .Where(p => p.ProductName.ToLower().Contains(SearchTextBox.Text.ToLower()))
                     .ToList();
             }
 
@@ -63,7 +62,7 @@ namespace Vosmerka.Pages
             {
                 filteredProducts = filteredProducts.OrderBy(p => p.MinCost).ToList();
             }
-            else if (PriceSortComboBox.SelectedIndex == 2)
+            else if (PriceSortComboBox.SelectedIndex == 3)
             {
                 filteredProducts = filteredProducts.OrderByDescending(p => p.MinCost).ToList();
             }
@@ -76,24 +75,37 @@ namespace Vosmerka.Pages
             }
         }
 
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Filter();
+        }
+
         private void PriceSortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Filter();
         }
 
         private void ProductTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void MaterialsButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditProductPage);
+            NavigationService.Navigate(new AddEditProductPage());
         }
 
-        private void MaterialsButton_Click(object sender, RoutedEventArgs e)
+        private void EditProductButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ProductsListBox.SelectedItem is Product selectedProduct)
+            {
+                NavigationService.Navigate(new AddEditProductPage(selectedProduct));
+            }
         }
 
         private void DeleteProductButton_Click(object sender, RoutedEventArgs e)
@@ -104,9 +116,9 @@ namespace Vosmerka.Pages
 
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    foreach (var pm in selectedProduct ProductMaterial.ToList())
+                    foreach (var pm in selectedProduct.Make.ToList())
                     {
-                        Core.Context.ProductMaterial.Remove(pm);
+                        Core.Context.Make.Remove(pm);
                     }
 
                     Core.Context.Product.Remove(selectedProduct);
@@ -114,14 +126,6 @@ namespace Vosmerka.Pages
 
                     Filter();
                 }
-            }
-        }
-
-        private void EditProductButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ProductsListBox.SelectedItem is Product selectedProduct)
-            {
-                NavigationService.Navigate(AddEditProductPage(selectedProduct));
             }
         }
     }
