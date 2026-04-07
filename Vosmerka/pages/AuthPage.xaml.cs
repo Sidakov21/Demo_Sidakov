@@ -22,7 +22,7 @@ namespace Vosmerka.Pages
     {
         public AuthPage()
         {
-            InitializeComponent();
+            InitializeComponent(); //Comment
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
