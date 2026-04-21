@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5dd02e619c2444e7a7875028d2233fe1" Name="Diagram1">
+        <EntityTypeShape EntityType="user50Model.Material" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.MaterialType" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.ProductMaterial" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.ProductType" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.Role" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.Unit" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.User" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="user50Model.Workshop" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="user50Model.FK_Material_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_Material_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_PM_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_PM_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_Product_Workshop" ManuallyRouted="false" />
+        <AssociationConnector Association="user50Model.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

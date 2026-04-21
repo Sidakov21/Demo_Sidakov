@@ -1,0 +1,98 @@
+﻿<Page x:Class="KruzhokDemkaV2.Pages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KruzhokDemkaV2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="SearchPanel" Grid.Row="0" Orientation="Horizontal">
+            <Grid>
+                <TextBox x:Name="SearchTextBox" 
+                    Width="400" TextChanged="SearchTextBox_TextChanged" 
+                    Background="Transparent" Panel.ZIndex="1"/>
+                <TextBlock x:Name="PlaceholderTextBlock" 
+                           Text="Введите для поиска" 
+                           Panel.ZIndex="0"/>
+            </Grid>
+            
+            <ComboBox x:Name="PriceSortComboBox" 
+                      SelectedIndex="0" Width="100" 
+                      SelectionChanged="PriceSortComboBox_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="ProductTypeComboBox" Width="200" 
+                      DisplayMemberPath="Name" SelectedIndex="0"
+                      SelectionChanged="ProductTypeComboBox_SelectionChanged"/>
+        </StackPanel>
+        
+        <ListBox Grid.Row="1" x:Name="ProductsListBox" 
+                 HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0">
+                            <Image.Source>
+                                <Binding Path="ImagePath">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>../Images/picture.png</ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <StackPanel Grid.Column="1" Margin="10">
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} | {1}">
+                                        <Binding Path="ProductType.Name"/>
+                                        <Binding Path="Name"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Article}"/>
+                            <TextBlock Text="{Binding Materials, StringFormat=Материалы: {0}}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="2" Text="{Binding MinCost}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsGreatThen10K}" Value="True">
+                            <Setter Property="Background" Value="#BB5FCA"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+
+        <StackPanel x:Name="MaterialsPanel" Grid.Row="2">
+            <StackPanel x:Name="EditButtonsPanel">
+                <Button x:Name="AddProductButton" Content="Добавить" Click="AddProductButton_Click"/>
+                <Button x:Name="EditProductButton" Content="Редактировать" Click="EditProductButton_Click"/>
+                <Button x:Name="DeleteProductButton" Content="Удалить" Click="DeleteProductButton_Click"/>
+            </StackPanel>
+            <Button x:Name="MaterialsButton" 
+                    Content="Материалы" Click="MaterialsButton_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
