@@ -24,5 +24,25 @@ namespace KruzhokDemkaV2.Pages.Material
         {
             InitializeComponent();
         }
+
+        private void AddMaterialButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditMaterialButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteMaterialButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackToProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

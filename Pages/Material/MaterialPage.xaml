@@ -10,56 +10,75 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox Grid.Row="1" x:Name="ProductsListBox" 
-          HorizontalContentAlignment="Stretch">
+        <!-- Список материалов -->
+        <ListBox Grid.Row="0" x:Name="MaterialsListBox" 
+                 HorizontalContentAlignment="Stretch"
+                 Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="80"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="1" Margin="10">
-                            <TextBlock>
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0} | {1}">
-                                        <Binding Path="ProductType.Name"/>
-                                        <Binding Path="Name"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                            <TextBlock Text="{Binding Article}"/>
-                            <TextBlock Text="{Binding Materials, StringFormat=Материалы: {0}}"/>
-                        </StackPanel>
-                        <TextBlock Grid.Column="2" Text="{Binding MinCost}"/>
-                    </Grid>
+                    <Border BorderBrush="LightGray" BorderThickness="0,0,0,1" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontWeight="Bold" FontSize="14">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} | {1}">
+                                            <Binding Path="MaterialType.Name"/>
+                                            <Binding Path="Name"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBlock Text="Упаковка: " FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding QuantityInPackage}"/>
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Unit.Name}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Остаток: " FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding Stock}"/>
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Unit.Name}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Мин. остаток: " FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding MinStock}"/>
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Unit.Name}"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Cost, StringFormat=Стоимость: {0:C}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsGreatThen10K}" Value="True">
-                            <Setter Property="Background" Value="#BB5FCA"/>
+                        <DataTrigger Binding="{Binding Stock}" Value="{Binding MinStock}">
+                            <!-- Не сработает напрямую, используем конвертер или свойство в модели -->
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-
-        <StackPanel x:Name="MaterialsPanel" Grid.Row="2">
-            <StackPanel x:Name="EditButtonsPanel">
-                <Button x:Name="AddProductButton" Content="Добавить"/>
-                <Button x:Name="EditProductButton" Content="Редактировать"/>
-                <Button x:Name="DeleteProductButton" Content="Удалить"/>
+        <!-- Нижняя панель с кнопками -->
+        <StackPanel x:Name="BottomPanel" Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <StackPanel x:Name="EditButtonsPanel" Orientation="Horizontal">
+                <Button x:Name="AddMaterialButton" Content="Добавить" Click="AddMaterialButton_Click" Margin="0,0,5,0"/>
+                <Button x:Name="EditMaterialButton" Content="Редактировать" Click="EditMaterialButton_Click" Margin="0,0,5,0"/>
+                <Button x:Name="DeleteMaterialButton" Content="Удалить" Click="DeleteMaterialButton_Click" Margin="0,0,5,0"/>
             </StackPanel>
+            <Button x:Name="BackToProductsButton" Content="Назад к продукции" Click="BackToProductsButton_Click"/>
         </StackPanel>
-
     </Grid>
 </Page>
